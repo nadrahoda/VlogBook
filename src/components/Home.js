@@ -1,11 +1,13 @@
 import React from 'react'
 import '../App.css'
+import {Link} from 'react-router-dom'
 import HomeImage from '../assets/home.jpg'
 import './Home.css'
 
 function Home() {
   return (
     <div className='home-container'>
+      
         <img src={HomeImage} alt="" className='home-image'></img>
         <div className='home-content'>
           <div className='home-title'>

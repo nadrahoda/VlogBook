@@ -1,29 +1,32 @@
 import React, { useState } from "react";
+import NewComponent from "./TourPage1";
 import styled from "styled-components";
 import destination1 from "../assets/tokyo.jpg";
 import destination2 from "../assets/seoul.jpg";
 import destination3 from "../assets/london.jpg";
 import star from "../assets/star.png";
-
+import { Link } from "react-router-dom";
 export default function Tour() {
   const data = [
     {
+      page:"/TourPage1",
       image: destination1,
       title: "Tokyo",
       subTitle: "Lorem ipsum dolor sit amet consectetur",
-      cost: "$5000",
-      duration: "5 Days",
+      cost: "$9000",
+      duration: "1 Days",
     },
     {
+      page:"/TourPage2",
       image: destination2,
-      title: "Tokyo",
+      title: "Seoul",
       subTitle: "Lorem ipsum dolor sit amet consectetur",
-      cost: "$5000",
-      duration: "5 Days",
+      cost: "$4000",
+      duration: "4 Days",
     },
-    {
+    {page:"/TourPage3",
       image: destination3,
-      title: "Tokyo",
+      title: "London",
       subTitle: "Lorem ipsum dolor sit amet consectetur",
       cost: "$5000",
       duration: "5 Days",
@@ -39,8 +42,9 @@ export default function Tour() {
 
   const [active, setActive] = useState(1);
 
-  return (
+  return ( 
     <Section id="recommend">
+  {/* <Link to="/NewComponent" target={"_blank"}> */}
       <div className="title">
         <h2>Related Tour</h2>
       </div>
@@ -62,7 +66,8 @@ export default function Tour() {
         {data.map((destination) => {
           return (
             <div className="destination">
-              <img src={destination.image} alt="" />
+               {/* <Link activeStyle={{ color: 'red' }} style={{textDecoration:"none"}} to={destination.page} target={"_blank"}> */}
+               <Link activeStyle={{ color: 'red' }} style={{textDecoration:"none"}} to={destination.page} target={"_blank"}>  <img  src={destination.image} alt=""  /></Link>
               <h3>{destination.title}</h3>
               <p>{destination.subTitle}</p>
               <div className="info">
@@ -77,11 +82,14 @@ export default function Tour() {
                 <span>1000 Kms</span>
                 <span>{destination.duration}</span>
               </div>
+           
             </div>
           );
         })}
       </div>
+      {/* </Link> */}
     </Section>
+   
   );
 }
 

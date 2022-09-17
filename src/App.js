@@ -1,11 +1,16 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {Link, BrowserRouter as Router, Routes , Route,Navigate} from 'react-router-dom';
 import Counter from "./components/Counter"
 import Home from "./components/Home";
+import Testing from "./components/Testing"
+import Main from "./components/Main"
 import Destinations from "./components/Destinations";
 import About from "./components/About";
+import TourPage1 from "./components/TourPage1";
+import TourPage2 from "./components/TourPage2";
+import TourPage3 from "./components/TourPage3";
 // import { Container } from "postcss";
 import Video from "./components/Video";
 import Review from "./components/Review";
@@ -18,8 +23,12 @@ import Landing from "./components/Pages/Landing";
 function App() {
   return (
     <>
-      <Router>
-        <Navbar />
+  
+     
+      {/* <Link to='/Testing'> test link here</Link> */}
+       
+        <Router>
+        {/* <Navbar />
         <Home />
         <Destinations />
         <Container />
@@ -29,11 +38,20 @@ function App() {
         <Review />
         <Counter/>
         <Contact />
-        <Footer />
+        <Footer /> */}
+        {/* <Main/> */}
+        {/* <Testing/> */}
         <Routes>
-          <Route path="/" exact component={Landing} />
+          <Route exact path="/" index element={<Main/>} />
+          {/* <Route path="/redeirect"  element={<Navigate to ="/NewComponent"/>} /> */}
+        <Route exact path="/TourPage1" element={<TourPage1/>}/>
+        <Route exact path="/TourPage2" element={<TourPage2/>}/>
+        <Route exact path="/TourPage3" element={<TourPage3/>}/>
+
         </Routes>
       </Router>
+       
+       
     </>
   );
 }
